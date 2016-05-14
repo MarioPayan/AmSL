@@ -8,61 +8,66 @@
 	<head>
 		<title>AmSL</title>
 	</head>
-	<body style='background-image: url("templates/bg.jpg");'>
+	<body>
 		<h1 style="text-align:center;">Análisis morfológico lematizador y estemmer</h1>
 		<hr>
 		<div class="container">
 			<div class="panel-body">
 				<form action="." method="POST">
-					<textarea class="form-control" rows="5" name="id_entrada" id="id_entrada">{{texto}}</textarea>
+					<textarea class="form-control" rows="5" name="inte" id="inte">{{text}}</textarea>
 					<input type="submit" onclick="gettext()" class="btn btn-primary" value="Morfologizar (?)"></input>
 				</form>
 			</div>
 			<div class="panel-body">
 				<div class="row">
-				  <div class="col-md-2" style="font-weight:bold;font-size:20px;text-align:center;">Original</div>
-				  <div class="col-md-2" style="font-weight:bold;font-size:20px;text-align:center;">Lema</div>
-				  <div class="col-md-2" style="font-weight:bold;font-size:20px;text-align:center;">Stemm</div>
-				  <div class="col-md-6" style="font-weight:bold;font-size:20px;text-align:center;">Morfología</div>
+				  <div class="col-xs-2 col-sm-2 col-md-1" style="font-weight:bold;font-size:20px;text-align:center;">Original</div>
+				  <div class="col-xs-2 col-sm-2 col-md-1" style="font-weight:bold;font-size:20px;text-align:center;">Lema</div>
+				  <div class="col-xs-2 col-sm-2 col-md-1" style="font-weight:bold;font-size:20px;text-align:center;">Stemm</div>
+				  <div class="col-xs-6 col-sm-6 col-md-6" style="font-weight:bold;font-size:20px;text-align:center;">Morfología</div>
 				</div>
 				<HR width=70% align="left"> 
 				
-				<div class="col-sm-2">
+				<div class="col-xs-2 col-sm-2 col-md-1">
 					{% for word in words %}
-				  <div class="row" style="line-height: 22px;">{{word}}</div>
+				  <div class="row" style="line-height: 22px;text-align:center;">{{word}}</div>
 				  <HR width=70% align="left"> 
 				  {% endfor %}
 				</div>
 
-				<div class="col-sm-2">
+				<div class="col-xs-2 col-sm-2 col-md-1">
 					{% for lema in lemas %}
-				  <div class="row" style="line-height: 22px;">{{lema}}</div>
+				  <div class="row" style="line-height: 22px;text-align:center;">{{lema}}</div>
 				  <HR width=70% align="left"> 
 				  {% endfor %}
 				</div>
 
-				<div class="col-sm-2">
+				<div class="col-xs-2 col-sm-2 col-md-1">
 					{% for stemm in stemms %}
-				  <div class="row" style="line-height: 22px;">{{stemm}}</div>
+				  <div class="row" style="line-height: 22px;text-align:center;">{{stemm}}</div>
 				  <HR width=70% align="left"> 
 				  {% endfor %}
 				</div>
 
-				<div class="col-sm-6">
+				<div class="col-xs-6 col-sm-6 col-md-6">
 					{% for morfo in morfos %}
-				  <div class="row" style="line-height: 22px;">{{morfo}}</div>
+				  <div class="row" style="line-height: 22px;">
+				  	{% for morf in morfo %}
+				  	<div class="col-xs-6 col-sm-6 col-md-6" style="text-align:center;">
+				  		[<span style="color: blue;">{{morf.0}}</span> - <span style="color: red;">{{morf.1}}</span> - <span style="color: green;"> {{morf.2}}</span>]
+				  	</div>
+				  	{% endfor %}
+				  </div>
 				  <HR width=70% align="left"> 
 				  {% endfor %}
 				</div>
 				
 			</div>
+			<footer>
+		 	<p style="text-align:right;line-height: 3px;">Por favor abstengase de utilizar la letra 'Ñ' o tíldes en esta versión</p>
+		 	<p style="text-align:right;line-height: 3px;">Los desarrolladores le haremos saber cuando esto sea implementada</p>
+		 </footer> 
 		</div>
+		 
 	</body>
-	<script type="text/javascript">
-		function gettext(){
-		var texto;
-		texto=document.getElementById("id_entrada").value;
-		}
-	</script>
 </html>
 

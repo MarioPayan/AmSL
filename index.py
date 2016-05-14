@@ -1,22 +1,27 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*- 
+
 from flask import Flask, request, render_template
 from flask import render_template
 import os
 from analizador import analizador
 app = Flask("AmSL")
 @app.route('/')
-def cargar():
-	return render_template('index.html')
+def set():
+	return render_template('index.html',text="")
 
 @app.route('/', methods=['POST'])
-def obtener():
-	texto=str(request.form['id_entrada'])
-	arbol =	analizar(texto)
-	words = arbol[0]
-	lemas = arbol[2]
-	stemms = arbol[3]
-	morfos = arbol[1]
-	return render_template('index.html', texto=texto, words=words, lemas=lemas, stemms=stemms, morfos=morfos)
-	#return render_template('index.html')
+def get():
+	text=str(request.form['inte'])
+	if(text!=""):
+		arbol =	analizar(text)
+		words = arbol[0]
+		lemas = arbol[2]
+		stemms = arbol[3]
+		morfos = arbol[1]
+		return render_template('index.html', text=text, words=words, lemas=lemas, stemms=stemms, morfos=morfos)
+	else:
+		return render_template('index.html')
 
 def analizar(strings):
 	analyze = analizador()
