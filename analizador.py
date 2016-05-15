@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*- 
 
 import subprocess
+import os, sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 class analizador():
 

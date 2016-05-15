@@ -3,7 +3,9 @@
 
 from flask import Flask, request, render_template
 from flask import render_template
-import os
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 from analizador import analizador
 app = Flask("AmSL")
 @app.route('/')

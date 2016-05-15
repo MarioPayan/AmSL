@@ -8,14 +8,14 @@
 	<head>
 		<title>AmSL</title>
 	</head>
-	<body>
-		<h1 style="text-align:center;">Análisis morfológico lematizador y estemmer</h1>
-		<hr>
+	<body style='background-image: url("/static/bg.jpg"); background-size: 100%; background-repeat: repeat;'>
+		<img src="/static/amls.png" style="display:block;margin-left: auto;margin-right: auto;">
+		<h3 style="text-align:right;font-weight:bold;padding-right: 10%;">Análisis morfológico, lematizador y estemmer</h3>
 		<div class="container">
 			<div class="panel-body">
 				<form action="." method="POST">
-					<textarea class="form-control" rows="5" name="inte" id="inte">{{text}}</textarea>
-					<input type="submit" onclick="gettext()" class="btn btn-primary" value="Morfologizar (?)"></input>
+					<textarea style="color:black; opacity:0.5;" placeholder="Ingrese su texto" class="form-control" rows="5" name="inte" id="inte">{{text}}</textarea>
+					<input type="submit" onclick="gettext()" class="btn btn-primary" value="Analizar"></input>
 				</form>
 			</div>
 			<div class="panel-body">
@@ -25,26 +25,26 @@
 				  <div class="col-xs-2 col-sm-2 col-md-1" style="font-weight:bold;font-size:20px;text-align:center;">Stemm</div>
 				  <div class="col-xs-6 col-sm-6 col-md-6" style="font-weight:bold;font-size:20px;text-align:center;">Morfología</div>
 				</div>
-				<HR width=70% align="left"> 
+				<HR width=100% align="center"> 
 				
 				<div class="col-xs-2 col-sm-2 col-md-1">
 					{% for word in words %}
 				  <div class="row" style="line-height: 22px;text-align:center;">{{word}}</div>
-				  <HR width=70% align="left"> 
+				  <HR width=90% align="center"> 
 				  {% endfor %}
 				</div>
 
 				<div class="col-xs-2 col-sm-2 col-md-1">
 					{% for lema in lemas %}
 				  <div class="row" style="line-height: 22px;text-align:center;">{{lema}}</div>
-				  <HR width=70% align="left"> 
+				  <HR width=90% align="center"> 
 				  {% endfor %}
 				</div>
 
 				<div class="col-xs-2 col-sm-2 col-md-1">
 					{% for stemm in stemms %}
 				  <div class="row" style="line-height: 22px;text-align:center;">{{stemm}}</div>
-				  <HR width=70% align="left"> 
+				  <HR width=90% align="center"> 
 				  {% endfor %}
 				</div>
 
@@ -57,14 +57,14 @@
 				  	</div>
 				  	{% endfor %}
 				  </div>
-				  <HR width=70% align="left"> 
+				  <HR width=100% align="center"> 
 				  {% endfor %}
 				</div>
 				
 			</div>
+			<HR width=100% align="center">
 			<footer>
-		 	<p style="text-align:right;line-height: 3px;">Por favor abstengase de utilizar la letra 'Ñ' o tíldes en esta versión</p>
-		 	<p style="text-align:right;line-height: 3px;">Los desarrolladores le haremos saber cuando esto sea implementada</p>
+		 	<p style="text-align:right;line-height: 3px;font-weight:bold;font-style: italic;">Mario Payan - Julian Rico</p>
 		 </footer> 
 		</div>
 		 
